@@ -10,7 +10,7 @@ pip install -r ./requirements.txt
 ```
 
 ## Examples of command
-Here we give examples of command for both real and synthetic data. The optional setting and its default value are given in the following Table. Please change the settings for what you need.
+Here we give examples of command for both real and synthetic data. Please change the settings in the following for what you need.
 
 An example for real data.
 ```
@@ -21,3 +21,17 @@ An example for synthetic data.
 ```
 python3 train_order.py --dataset SynER1 --linear_rate 1.0
 ```
+
+## Settings
+The important setting and its default value are given in the following table.
+
+|Name|Default|Description|
+|---|---|---|
+|dataset|sachs|It will automatically generate synthetic data if dataset starts with 'Syn', otherwise it reads the real data directly.|
+|linear_rate|1.0|The linear proportion of synthetic data.  0.0 means all relations are nonlinear and 1.0 means all relations are linear.|
+|linear_sem_type|gauss|The linear SEM of synthetic data, containing gauss, laplace and gumbel.|
+|nonlinear_sem_type|gp|The nonlinear SEM of synthetic data, containing gp, mlp and mim.|
+|pre_pruning|True|Use pre-pruning. Details are in Section 4.3 and Appendix B.|
+|add_edge|True|Use edge supplement. Details are in Section 4.3 and Appendix B.|
+|lambda1|50.0|The hyperparameter $\lambda$ for pre_pruning. Details are in Section 4.3 and Appendix B.|
+|lambda2|50.0|The hyperparameter $\lambda$ for edge supplement. Details are in Section 4.3 and Appendix B.|
